@@ -7,9 +7,9 @@ app.use(express.json());
 app.use(cors());
 
 app.post('/api/quiz', async (req, res) => {
-    // console.log("req came");
+    console.log("req came");
     const { difficulty, category } = req.body;
-    // console.log(difficulty, category);
+    console.log(difficulty, category);
     let apiUrl;
 
     if(difficulty == "any" && category == "any"){
@@ -26,7 +26,7 @@ app.post('/api/quiz', async (req, res) => {
      apiUrl = `https://opentdb.com/api.php?amount=10&difficulty=${difficulty}&category=${category}`;
     }
 
-    // console.log(apiUrl);
+    console.log(apiUrl);
 
     try {
       const response = await fetch(apiUrl);
@@ -39,3 +39,4 @@ app.post('/api/quiz', async (req, res) => {
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
